@@ -64,6 +64,7 @@ takePhoto(): Promise<any> {
       targetWidth: 400,
       targetHeight: 400,
       quality: 100,
+      correctOrientation: true,
 
   }).then((path) => {
     path; // retorna o caminho da imagem
