@@ -1,0 +1,46 @@
+<ion-content padding class="background" >
+
+<!-- Logo -->
+<div padding-horizontal text-center class="logoContainer">
+ <div>
+     <img src="../../assets/imgs/loginlogo.png"  class="logo"/>
+ </div>
+ </div>
+  
+<div class="formContainer">
+<form class="list-form">
+  <ion-item>
+    <ion-label floating>
+      <ion-icon name="mail" item-start class="icon"></ion-icon>
+      <span class="textLabel"> Email </span>
+    </ion-label>
+    <ion-input type="email" #username></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>
+      <ion-icon name="lock" item-start class="icon"></ion-icon>
+      <span class="textLabel"> Senha </span>
+    </ion-label>
+    <ion-input type="password" #password></ion-input>
+  </ion-item>
+</form>
+</div>
+
+<div padding>
+    <button block ion-button (click)="signInUser()" item-left color="primary">Entrar</button>
+    <!--<p text-center ion-text class="texts">ou</p>-->
+    <!--Facebook
+    <button ion-button icon-only block class="btn-facebook" (click)="facebookLogin()">
+        <ion-icon name="logo-facebook" style="color: #fff;"></ion-icon>
+        Login com Facebook
+    </button>-->
+</div>
+
+<div>
+  <p ion-text color="secondary" tappable class="texts" (click)="showPromptPassRecover()"><strong>Esqueceu sua senha?</strong></p>
+  <p ion-text color="secondary" tappable class="texts">Ainda não é membro. <strong (click)="register()">Criar Conta</strong></p>
+</div>
+
+</ion-content>
+  

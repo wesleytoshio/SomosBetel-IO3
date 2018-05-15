@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Upload de Imagem</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+<!--realtime-->
+<div>
+   <div *ngIf="imgDoc$ | async as item">
+      <div *ngIf="item.photoURL; then DisplayImgContainer;">
+          <p>Gostaria de fazer upload de uma Imagem ou Foto para ilustrar a vaga Disponibilizada?</p>
+      </div>
+      <ng-template #DisplayImgContainer>
+          <img [src]="item.photoURL"/> 
+      </ng-template>
+   </div>
+ </div> 
+<!--realtime-->
+
+
+<div padding>
+    <div *ngIf="(imgDoc$ | async) ?.photoURL; then imageExists else imageNotExists" > A imagem renderiza aqui </div>
+    <ng-template #imageExists>  
+        <button block ion-button (click)="getMedia()" icon-left><ion-icon name="cloud-done"></ion-icon>Trocar Imagem</button>  
+        <button block ion-button color="danger" (click)="deleteImage()" item-left><ion-icon name="trash"></ion-icon>Excluir Imagem</button> 
+    </ng-template>   
+    <ng-template #imageNotExists>  
+        <button block ion-button (click)="getMedia()" icon-left><ion-icon name="cloud-upload"></ion-icon>Enviar Foto</button>        
+    </ng-template>    
+    <button block ion-button outline (click)="finish()" icon-left><ion-icon name="checkmark"></ion-icon>Pronto!</button>
+</div>
+
+</ion-content>

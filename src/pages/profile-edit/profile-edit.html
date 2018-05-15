@@ -1,0 +1,81 @@
+<ion-header>
+
+    <ion-navbar>
+      <ion-title>Editar Perfil</ion-title>
+      <!--Close Modal Window-->
+      <ion-buttons end>
+        <button ion-button (click) ="closeModal()"><ion-icon name = "close" ></ion-icon></button>
+      </ion-buttons>
+     </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <div *ngIf="userDetails | async as item" style="margin-top: 35px;">
+        <div *ngIf="item.photoURL; else noPhoto">
+           <img [src]="item.photoURL" class="img"/>  
+        </div>
+        <ng-template #noPhoto>
+           <img src="./../assets/imgs/user.jpg" class="img" /> 
+        </ng-template>
+     </div>
+<button ion-button clear block (click) = "photoUpload()"> Alterar Foto </button>
+
+<ion-item-divider color="light" style="background-color: rgb(250, 250, 250) !important;">Dados Pessoais</ion-item-divider>
+      <!-- Dados pessoais do Perfil para edição-->
+      <ion-item>
+          <ion-label floating>name</ion-label>
+          <ion-input [(ngModel)] = "profileuser.firstname" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Sobrenome</ion-label>
+          <ion-input [(ngModel)] = "profileuser.lastname" ></ion-input>
+        </ion-item>
+        
+        <ion-item>
+        <ion-label floating>Data de Nascimento</ion-label>
+          <ion-datetime displayFormat="DD/MMM/YYYY" [(ngModel)] = "profileuser.birthDate"></ion-datetime>
+        </ion-item>
+
+<ion-item-divider color="light" style="background-color: rgb(250, 250, 250) !important;"> Cargo na Igreja </ion-item-divider>
+
+        <ion-item>
+            <ion-label stacked>Você possue algum cargo na igreja? (*opcional)</ion-label>
+            <ion-input type="text" placeholder="ex: Pastor, Diácono, Músico, Lider de Jovens etc..." [(ngModel)] = "profileuser.functionType" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+           <ion-label floating>Cidade</ion-label>
+           <ion-input [(ngModel)] = "profileuser.city" ></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Estado</ion-label>
+            <ion-input [(ngModel)] = "profileuser.state" ></ion-input>
+        </ion-item>
+        
+<ion-item-divider color="light" style="margin-top: 15px; background-color: rgb(250, 250, 250) !important;">Contato</ion-item-divider>
+        <ion-item>
+            <ion-label floating>Whatsapp</ion-label>
+            <ion-input [(ngModel)] = "profileuser.whatsapp" ></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input disabled="true" [(ngModel)] = "profileuser.email" ></ion-input>
+        </ion-item>
+
+<ion-item-divider color="light" style="background-color: rgb(250, 250, 250) !important;">Membro Desde que Ano</ion-item-divider>
+
+       <ion-item>
+         <ion-label stacked>Em que ano você entrou para Betel?</ion-label>
+         <ion-datetime displayFormat="YYYY" [(ngModel)] ="profileuser.memberSince"></ion-datetime>
+       </ion-item>
+
+        <div style="margin-top: 25px;">
+        <!-- Botão Criar Perfil-->
+        <button ion-button full (click) = "Saveprofile(profileuser)"> Salvar </button>
+        </div>
+
+</ion-content>

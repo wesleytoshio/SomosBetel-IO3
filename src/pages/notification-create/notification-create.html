@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Enviar Aviso</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<ion-list>
+<form [formGroup]="NotificationForm" (ngSubmit)="saveAndSendNotification()">
+
+  <ion-item>
+    <ion-label stacked>Título</ion-label>
+    <ion-input type="text"  formControlName="title" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label stacked>Mensagem</ion-label>
+    <ion-textarea type="text" formControlName = "bodyMessage" rows="2" cols="4"></ion-textarea>
+  </ion-item>
+
+  <!-- Botão Enviar Aviso-->
+  <button style="margin-top: 25px" [disabled]="NotificationForm.invalid" ion-button clear full> Enviar </button>
+
+
+</form>
+</ion-list>
+
+
+</ion-content>

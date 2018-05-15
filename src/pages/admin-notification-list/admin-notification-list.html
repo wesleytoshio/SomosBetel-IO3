@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Editar Avisos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-list *ngFor="let item of notificationDetails$ | async; let i = index" (click)="openOptions(item.id)">
+
+        <ion-card text-wrap>
+          <ion-card-header>
+            <ion-icon name="notifications" class="icon"></ion-icon>
+                   <p class="titleNotification">{{ item.title }}</p>
+                  </ion-card-header>
+                <ion-card-content>
+                  <p>{{ item.bodyMessage }}</p>
+              </ion-card-content>
+              <ion-item>
+                <p class="dateSending">Enviado em: {{ item.dateSending | date: 'dd/MM/yy'}}</p>
+              </ion-item>
+          </ion-card>
+        </ion-list>
+
+</ion-content>

@@ -1,0 +1,68 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Criar Perfil</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+<ion-list>
+<form [formGroup]="registerProfile" (ngSubmit)="createProfile()">
+
+ <ion-item-divider color="light" style="background-color: rgb(250, 250, 250) !important;">Dados Pessoais</ion-item-divider>
+    
+  <!-- Dados pessoais do Perfil-->
+    <ion-item>
+      <ion-label stacked>Nome</ion-label>
+      <ion-input type="text"  formControlName="firstname" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Sobrenome</ion-label>
+      <ion-textarea type="text" formControlName = "lastname" rows="2" cols="4"></ion-textarea>
+    </ion-item>
+    <ion-item>
+    <ion-label floating>Data de Nascimento</ion-label>
+        <ion-datetime displayFormat="DD/MMM/YYYY" formControlName="birthDate"></ion-datetime>
+    </ion-item>
+
+    <ion-item-divider color="light" style="background-color: rgb(250, 250, 250) !important;"> Cargo na Igreja </ion-item-divider>
+
+    <ion-item>
+        <ion-label stacked>Você possue algun cargo na igreja? Se não possue deixe em branco.</ion-label>
+        <ion-input type="text"  formControlName="functionType" placeholder="ex: Pastor, Diácono, Músico, Lider de Jovens etc..." ></ion-input>
+    </ion-item>
+
+
+    <ion-item-divider color="light" style="background-color: rgb(250, 250, 250) !important;">Seu Endereço</ion-item-divider>
+    
+    <ion-item>
+        <ion-label stacked>Cidade</ion-label>
+        <ion-input type="text" formControlName = "city"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>Estado</ion-label>
+        <ion-input type="text" formControlName = "state" ></ion-input>
+    </ion-item>
+
+    <ion-item-divider color="light" style="background-color: rgb(250, 250, 250) !important;">Contato</ion-item-divider>
+
+    <ion-item>
+      <ion-label stacked>whatsapp</ion-label>
+      <ion-input type="number" formControlName = "whatsapp"></ion-input>
+    </ion-item>
+
+    <ion-item-divider color="light" style="background-color: rgb(250, 250, 250) !important;">Membro Desde que Ano</ion-item-divider>
+
+    <ion-item>
+      <ion-label stacked>Em que ano você entrou para Betel?</ion-label>
+      <ion-datetime displayFormat="YYYY" formControlName="memberSince"></ion-datetime>
+    </ion-item>
+
+<!-- Botão Criar Perfil-->
+  <button style="margin-top: 25px" [disabled]="registerProfile.invalid" ion-button clear full icon-right > Avançar <ion-icon name="ios-arrow-forward"></ion-icon></button>
+
+</form>
+</ion-list>
+</ion-content>

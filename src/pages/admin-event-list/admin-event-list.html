@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Lista de Eventos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+  <ion-list>
+    <ion-item *ngFor="let item of eventDetails | async; let i = index" (click)="openOptions(item.id)">
+      <div *ngIf="item.photoURL">
+          <img [src]="item.photoURL" class="img" />
+      </div>
+      <p class="eventTitle">{{ item.title }}</p>
+      <div class="day">
+        <p id="date">{{item.eventDate | date: 'dd/MM'}}</p>
+        <p id="hour"><ion-icon name="md-time" style="margin-top: 5px;"></ion-icon> {{item.eventHour}}</p>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

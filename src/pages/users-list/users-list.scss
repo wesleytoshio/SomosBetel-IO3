@@ -1,0 +1,42 @@
+page-users-list {
+
+    .img{
+        height: 70vh;
+        width: auto;
+        margin: auto;
+        //margin-bottom: 25px;
+        //display: block;
+        width: 65px ;
+        height: 65px;
+        border-radius: 100px;
+        margin-right: 4%;
+        float: left;
+    };
+
+    #name{
+        font-size: 18px;
+        font-weight: 500;
+       // color: #F68666;
+        color: black;
+        margin-top: 10px;
+
+    };
+    #city{
+        color: gray;
+        float: left;
+    }
+    #jobType{
+        color: rgb(3, 219, 219);
+        float: left;
+        margin-left: 5px;
+    }
+    .iconJob{
+        color: rgb(3, 219, 219);
+        float: left;
+        margin-left: 5px;
+        padding-top: 3px;
+        font-size: 12px;
+    }
+
+
+}

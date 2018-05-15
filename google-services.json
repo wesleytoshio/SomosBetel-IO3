@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "341235712964",
+    "firebase_url": "https://betel-aplicativo.firebaseio.com",
+    "project_id": "betel-aplicativo",
+    "storage_bucket": "betel-aplicativo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341235712964:android:5689c2a9e375de7b",
+        "android_client_info": {
+          "package_name": "com.betel.aplicativo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "341235712964-749tk1silatdqaulmrfgrthk97q5lo1q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqh5axwolXdvqfHE2TWCXcBUke7DQBUkk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

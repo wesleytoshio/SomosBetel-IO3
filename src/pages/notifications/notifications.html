@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Mural Avisos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+
+    <ion-list *ngFor="let item of notificationDetails$ | async; let i = index">
+
+    <ion-card text-wrap>
+      <ion-card-header>
+        <ion-item>
+        <ion-avatar class="avatar">
+        <img src="https://firebasestorage.googleapis.com/v0/b/betel-aplicativo.appspot.com/o/Imagens-padrao%2FChurchLogo.png?alt=media&token=3326241b-0d74-487f-9039-7c47282f0a1d">
+        </ion-avatar>      
+        </ion-item>
+          <p class="titleNotification">{{ item.title }}</p>
+        </ion-card-header>
+
+          <ion-card-content>
+              <p class="text">{{ item.bodyMessage }}</p>
+          </ion-card-content>
+          <ion-item>
+            <p class="dateSending">Enviado em: {{ item.dateSending | date: 'dd/MM/yy'}}</p>
+          </ion-item>
+      </ion-card>
+    </ion-list>
+
+</ion-content>

@@ -1,0 +1,40 @@
+page-login {
+
+.background{
+   // background-color: #5400a3; 
+    background-image: url("../../assets/imgs/background.jpg");
+    background-size: cover;
+}
+
+.logo{
+    width: 150px;
+    height: auto;
+    padding-top: 100px;
+}
+
+.texts{
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+}
+
+//form
+
+.formContainer{
+    padding-top: 5px;
+}
+
+.item.item-input {
+    background-color: transparent;
+    color: #fff;
+}
+.textLabel{
+    color: #fff;
+}
+
+.icon{
+    color: rgb(76, 131, 250);
+}
+
+
+}

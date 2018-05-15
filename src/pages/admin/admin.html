@@ -1,0 +1,22 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Administração</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  
+  <ion-list>
+      <button ion-item (click)="goEventCreate()"> <ion-icon name="create" item-start></ion-icon>Criar Evento</button>  
+      <button ion-item (click)="goEventList()"><ion-icon ios="ios-calendar" md="md-calendar" item-start></ion-icon>Editar Agenda </button>
+      <button ion-item (click)="goNotificationCreate()"><ion-icon name="notifications-outline" item-start></ion-icon> Criar Aviso </button>
+      <button ion-item (click)="goNotificationEdit()"><ion-icon name="notifications-off" item-start></ion-icon> Editar Avisos </button>
+      <button ion-item ><ion-icon name="information-circle" item-start></ion-icon> Editar Detalhes da Igreja </button> 
+      <button ion-item (click)="logout()" ><ion-icon name="log-out" item-start></ion-icon> Sair </button>   
+  </ion-list>
+
+</ion-content>

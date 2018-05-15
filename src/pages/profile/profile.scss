@@ -1,0 +1,57 @@
+page-profile {
+
+    .photoContainer{
+        padding-top: 25px; 
+        padding-bottom: 25px;
+        background-color: #311b92;
+    }
+    .img{
+        height: 70vh;
+        width: auto;
+        margin: auto;
+        margin-bottom: 0px;
+        display: block;
+        width: 160px ;
+        height: 160px;
+        border-radius: 100px;
+    }
+
+    .fullName{
+        text-align:center;
+        font-size:25px;
+        color: rgb(255, 255, 255);
+    }  
+    .birthDate{
+        text-align:center;
+        font-size:12px;
+        margin-top: 5px;
+        color: rgb(255, 255, 255);
+    } 
+
+    .functionType{
+        text-align:center;
+        font-size:16px;
+        margin-top: 5px;
+        color: rgb(3, 219, 219);
+    }
+
+    .city{
+        font-size:12px;
+        text-align:center;
+        color: black;
+        margin-top: -20px;
+        color: rgb(255, 255, 255);
+    }
+
+    .titleDividers{
+        font-size:18px;
+        font-weight: 500;
+        text-align:center;
+        color: black;
+    }
+    .contact{
+        margin-top: 10px;
+        text-align:center;
+        //color: black;
+    }
+}

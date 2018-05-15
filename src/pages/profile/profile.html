@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-navbar color="">
+
+        <ion-title>Meu Perfil</ion-title>
+        <ion-buttons end>
+        <button ion-button icon-only (click)="EditProfileModal()">
+              <ion-icon name="create"></ion-icon>
+        </button>
+        <!--Se is Admin é igual a TRUE aparece este botão-->
+        <button *ngIf="(userDetails | async) ?.isAdmin === true" ion-button icon-only (click)="goAdminPage()">
+                <ion-icon ios="ios-settings-outline" md="md-settings"></ion-icon>
+        </button>
+        </ion-buttons>
+        
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+<div class="photoContainer">
+    
+<div *ngIf="userDetails | async as item;" >
+    <div *ngIf="item.photoURL; else noPhoto">
+    <img [src]="item.photoURL" class="img" />  
+    </div>
+
+    <ng-template #noPhoto>
+        <img src="../../assets/imgs/user.jpg" class="img" /> 
+    </ng-template>
+    <p class="fullName">  {{ item.firstname }} {{ item.lastname }}</p>
+    <p class="city"><ion-icon name="pin" ></ion-icon>  {{ item.city }} | {{ item.state }}</p>
+    <div><p class="birthDate" >{{convertBirthDate(item.birthDate)}} de idade</p></div>
+    <div *ngIf="item.functionType"><p class="functionType" ><ion-icon name="bookmark" style="margin-right: 5px; font-size: 15px;"></ion-icon>{{item.functionType}}</p></div>
+    </div>
+    
+</div>
+
+<div *ngIf="userDetails | async as profileItem">
+    <ion-list>
+    <ion-item>
+       <p class="titleDividers"> Membro Betel Desde </p>
+       <p class="contact">{{ profileItem.memberSince }}</p>
+    </ion-item>
+    <ion-item>
+       <p class="titleDividers"> Contato </p>
+       <p class="contact"><ion-icon name="logo-whatsapp" ></ion-icon>  {{ profileItem.whatsapp }}</p>
+       <p class="contact"><ion-icon name="mail" ></ion-icon>  {{ profileItem.email }}</p>
+    </ion-item>
+    </ion-list> 
+</div>
+
+  <!--<button class="editButton" ion-button (click)="EditProfileModal()"> Editar Perfil </button>-->
+
+</ion-content>

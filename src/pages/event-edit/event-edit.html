@@ -1,0 +1,59 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>EventEdit</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <div *ngIf="eventDetails | async as item" style="margin-top: 35px;">
+        <div *ngIf="item.photoURL; else noPhoto">
+           <img [src]="item.photoURL" class="img"/>  
+        </div>
+        <ng-template #noPhoto>
+          <p style="text-align: center">Este evento não Possue Imagem</p>
+        <!--   <img src="./../assets/imgs/user.jpg" class="img" /> -->
+        </ng-template>
+     </div>
+<button ion-button clear block (click) = "photoUpload()"> Alterar Imagem </button>
+
+<ion-item-divider color="light" style="background-color: rgb(250, 250, 250) !important;">Dados Pessoais</ion-item-divider>
+      <!-- Dados pessoais do Perfil para edição-->
+      <ion-item>
+          <ion-label floating>Título</ion-label>
+          <ion-input [(ngModel)] = "event.title" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Descrição</ion-label>
+          <ion-input [(ngModel)] = "event.descriptionShort" ></ion-input>
+        </ion-item>
+        
+<ion-item-divider color="light" style="margin-top: 15px; background-color: rgb(250, 250, 250) !important;">Data e Horário</ion-item-divider>
+         <ion-item>
+             <ion-label floating>Data</ion-label>
+             <ion-datetime displayFormat="DD/MMM/YYYY" [(ngModel)] = "event.eventDate"></ion-datetime>
+         </ion-item>
+         
+         <ion-item>
+             <ion-label floating>Horário</ion-label>
+             <ion-datetime displayFormat="HH:mm" [(ngModel)] = "event.eventHour"></ion-datetime>
+         </ion-item>
+
+<ion-item-divider color="light" style="background-color: rgb(250, 250, 250) !important;">Local</ion-item-divider>
+
+       <ion-item>
+         <ion-label stacked>Qual será o local do Evento?</ion-label>
+         <ion-input [(ngModel)] ="event.eventLocal"></ion-input>
+       </ion-item>
+
+      <!-- Botão Criar Perfil-->
+      <div style="margin-top: 25px;">
+      <button ion-button full (click) = "SaveEvent(event)"> Salvar </button>
+      </div>
+
+
+</ion-content>

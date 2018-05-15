@@ -1,0 +1,51 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Adicionar Evento</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+
+<ion-list>
+  <form [formGroup]="registerEvent" (ngSubmit)="createEvent()">
+    
+<ion-item-divider color="light" style="background-color: rgb(250, 250, 250) !important;">Detalhes do Evento</ion-item-divider>
+
+    <ion-item>
+      <ion-label stacked>Título</ion-label>
+      <ion-input type="text"  formControlName="title" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Descrição</ion-label>
+      <ion-textarea type="text" formControlName = "descriptionShort" rows="2" cols="4"></ion-textarea>
+    </ion-item>
+
+<ion-item-divider color="light" style="background-color: rgb(250, 250, 250) !important;">Data e Horário</ion-item-divider>
+
+    <ion-item>
+        <ion-label floating>Data</ion-label>
+        <ion-datetime displayFormat="DD/MMM/YYYY" formControlName="eventDate"></ion-datetime>
+    </ion-item>
+  
+    <ion-item>
+        <ion-label floating>Horário</ion-label>
+        <ion-datetime displayFormat="HH:mm" formControlName="eventHour"></ion-datetime>
+    </ion-item>
+
+<ion-item-divider color="light" style="background-color: rgb(250, 250, 250) !important;">Local</ion-item-divider>
+
+    <ion-item>
+        <ion-label floating>Local</ion-label>
+        <ion-input formControlName="eventLocal"></ion-input>
+    </ion-item>
+
+  <!-- Botão Criar Evento-->
+  <button style="margin-top: 25px" [disabled]="registerEvent.invalid" ion-button clear full icon-right> Avançar <ion-icon name="ios-arrow-forward"></ion-icon></button>
+  </form>
+  <button style="margin-top: 10px" ion-button full (click)="cancel()">Cancelar</button>
+</ion-list>
+
+</ion-content>

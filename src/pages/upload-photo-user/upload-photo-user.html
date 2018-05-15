@@ -1,0 +1,39 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Adicionar Foto</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<!--realtime-->
+<div>
+    <div *ngIf="photoUser$ | async as item">
+       <div *ngIf="item.photoURL; else noPhotoContainer;">
+            <img [src]="item.photoURL" class="img"/>  
+       </div>
+       <ng-template #noPhotoContainer>
+            <img src="./../assets/imgs/user.jpg" class="img" /> 
+       </ng-template>
+    </div>
+  </div> 
+ <!--realtime-->
+ 
+ 
+<div padding>
+    <div *ngIf="(photoUser$ | async) ?.photoURL; then imageExists else imageNotExists" > A Foto renderiza aqui </div>
+    <ng-template #imageExists>  
+        <button block ion-button (click)="getMedia()" icon-left><ion-icon name="cloud-done"></ion-icon>Trocar Imagem</button>  
+        <button block ion-button color="danger" (click)="deleteImage()" item-left><ion-icon name="trash"></ion-icon>Excluir Imagem</button> 
+    </ng-template>   
+    <ng-template #imageNotExists>  
+        <button block ion-button (click)="getMedia()" icon-left><ion-icon name="cloud-upload"></ion-icon>Enviar Foto</button>  
+        <button block ion-button (click)="takePhoto()" icon-left><ion-icon name="camera"></ion-icon>Tirar Foto</button>       
+    </ng-template>    
+    <button block ion-button outline (click)="finish()" icon-left><ion-icon name="checkmark"></ion-icon>Pronto!</button>
+</div>
+ 
+</ion-content>
