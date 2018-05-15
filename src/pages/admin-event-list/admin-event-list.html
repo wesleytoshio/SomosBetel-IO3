@@ -8,16 +8,36 @@
 
 
 <ion-content >
-  <ion-list>
-    <ion-item *ngFor="let item of eventDetails | async; let i = index" (click)="openOptions(item.id)">
-      <div *ngIf="item.photoURL">
-          <img [src]="item.photoURL" class="img" />
-      </div>
-      <p class="eventTitle">{{ item.title }}</p>
-      <div class="day">
-        <p id="date">{{item.eventDate | date: 'dd/MM'}}</p>
-        <p id="hour"><ion-icon name="md-time" style="margin-top: 5px;"></ion-icon> {{item.eventHour}}</p>
-      </div>
-    </ion-item>
-  </ion-list>
+    <ion-list *ngFor="let item of eventDetails | async; let i = index">
+        <ion-card text-wrap>
+          <ion-item>
+            <ion-avatar item-start>
+           <!-- <img src="https://firebasestorage.googleapis.com/v0/b/betel-aplicativo.appspot.com/o/Imagens-padrao%2FChurchLogo.png?alt=media&token=3326241b-0d74-487f-9039-7c47282f0a1d">-->
+           <img src="../../assets/imgs/avatar-feed.png"/>
+            </ion-avatar>
+           <ion-card-title>
+            <p class="eventTitle">{{ item.title }}</p>
+        </ion-card-title>
+    
+          </ion-item>
+    
+          <ion-card-content>
+              <p> {{ item.descriptionShort }} </p>
+          </ion-card-content>
+          <div *ngIf="item.photoURL">
+              <img [src]="item.photoURL" class="img" imageViewer/>
+          </div>
+          <div col-4 style="float: left;">
+              <p id="date">{{item.eventDate | date: 'dd/MM'}}</p>
+          </div>
+          <div col-8 style="float: left;">
+          <ion-card-content>
+              <p id="hour"><ion-icon name="md-time" style="margin-top: 10px;"></ion-icon> A partir das {{item.eventHour}} Hrs</p>
+              <p><ion-icon name="pin" style="margin-top: 5px;"></ion-icon> {{ item.eventLocal }} </p>
+          </ion-card-content>
+          </div>
+          <button ion-button full (click)="openOptions(item.id)" >Editar Evento</button>
+        </ion-card>
+    
+      </ion-list>
 </ion-content>

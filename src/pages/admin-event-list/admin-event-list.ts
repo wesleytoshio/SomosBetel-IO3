@@ -53,7 +53,7 @@ export class AdminEventListPage {
   }
 
   openOptions(docId){
-    console.log(docId)
+    //console.log(docId)
     this.presentOptionsActionSheet(docId)
   }
 
@@ -82,7 +82,7 @@ export class AdminEventListPage {
           text: 'sair',
           role: 'cancel',
           handler: () => {
-            console.log('Cancel clicked');
+            console.log('Cancel');
           }
         }
       ]
@@ -99,7 +99,7 @@ export class AdminEventListPage {
         {
           text: 'Não',
           handler: () => {
-            console.log('Cancelado');
+           // console.log('Cancelado');
           }
         },
         {
