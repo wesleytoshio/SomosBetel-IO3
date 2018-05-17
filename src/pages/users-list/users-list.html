@@ -9,15 +9,13 @@
 
 <ion-content padding>
     <ion-list *ngFor = "let item of userslist | async; let i = index" (click) = " selecUser(item.uid)" >
-        <ion-item>
-          
+        <ion-item>         
            <div *ngIf="item.photoURL; else noPhoto">
               <img [src]="item.photoURL" class="img"/>  
            </div>
            <ng-template #noPhoto>
               <img src="./../assets/imgs/user.jpg" class="img" /> 
            </ng-template>
-
             <p id="name">{{ item.firstname }} {{ item.lastname }}</p>
             <p id="city"><ion-icon name="pin"></ion-icon> {{ item.city }} </p>
             <span *ngIf="item.functionType"><ion-icon name="checkmark-circle" class="iconJob"></ion-icon> <p id="jobType">{{item.functionType}}</p></span>

@@ -3,7 +3,9 @@ page-profile {
     .photoContainer{
         padding-top: 25px; 
         padding-bottom: 25px;
-        background-color: #311b92;
+        //background-color: #311b92;
+        background-image: url("../../assets/imgs/background.jpg");
+        background-size: cover;
     }
     .img{
         height: 70vh;

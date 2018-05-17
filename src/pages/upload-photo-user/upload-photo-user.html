@@ -26,7 +26,8 @@
 <div padding>
     <div *ngIf="(photoUser$ | async) ?.photoURL; then imageExists else imageNotExists" > A Foto renderiza aqui </div>
     <ng-template #imageExists>  
-        <button block ion-button (click)="getMedia()" icon-left><ion-icon name="cloud-done"></ion-icon>Trocar Imagem</button>  
+        <button block ion-button (click)="getMedia()" icon-left><ion-icon name="cloud-done"></ion-icon>Trocar Imagem</button>
+        <button block ion-button (click)="takePhoto()" icon-left><ion-icon name="camera"></ion-icon>Tirar Foto</button>
         <button block ion-button color="danger" (click)="deleteImage()" item-left><ion-icon name="trash"></ion-icon>Excluir Imagem</button> 
     </ng-template>   
     <ng-template #imageNotExists>  

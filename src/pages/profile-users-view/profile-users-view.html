@@ -13,36 +13,36 @@
 
 <ion-content padding class="pageContainer">
 
-  <div class="pageInside">
+  <div class="pageInside" *ngIf="userDetails | async as item">
 
-    <div *ngIf="userDetails | async as item" >
+
         <div *ngIf="item.photoURL; else noPhoto">
            <img [src]="item.photoURL" class="img" />  
         </div>
         <ng-template #noPhoto>
            <img src="./../assets/imgs/user.jpg" class="img" /> 
         </ng-template>
-   </div>
+
  
    <ion-list>
    <ion-item>
-      <p class="fullName">  {{ (userDetails | async) ?.firstname }} {{ (userDetails | async) ?.lastname }}</p>
+      <p class="fullName">  {{ item.firstname }} {{ item.lastname }}</p>
    </ion-item>
    <ion-item>
-      <p class="city"><ion-icon name="pin" ></ion-icon>  {{ (userDetails | async) ?.city }} | {{ (userDetails | async) ?.state }}</p>
+      <p class="city"><ion-icon name="pin" ></ion-icon>  {{ item.city }} | {{ item.state }}</p>
       <div>
-      <p class="birthDate" >{{convertBirthDate((userDetails | async) ?.birthDate)}} de idade</p>
+      <p class="birthDate" >{{convertBirthDate(item.birthDate)}} de idade</p>
+      <div *ngIf="item.functionType"><p class="functionType" ><ion-icon name="checkmark-circle" style="margin-right: 5px; font-size: 12px;"></ion-icon>{{item.functionType}}</p></div>
       </div>
-      <div *ngIf="userDetails | async ?.functionType"><p class="functionType" ><ion-icon name="bookmark" style="margin-right: 5px; font-size: 15px;"></ion-icon>{{ (userDetails | async) ?.functionType }}</p></div>
    </ion-item>
    <ion-item>
       <p class="title"> Membro Betel Desde </p>
-      <p class="contact">{{ (userDetails | async) ?.memberSince }}</p>
+      <p class="contact">{{ item.memberSince }}</p>
    </ion-item>
    <ion-item>
       <p class="title"> Contato </p>
-      <p class="contact"><ion-icon name="logo-whatsapp" ></ion-icon>  {{ (userDetails | async) ?.whatsapp }}</p>
-      <p class="contact"><ion-icon name="mail" ></ion-icon>  {{ (userDetails | async) ?.email }}</p>
+      <p class="contact"><ion-icon name="logo-whatsapp" ></ion-icon>  {{ item.whatsapp }}</p>
+      <p class="contact"><ion-icon name="mail" ></ion-icon>  {{ item.email }}</p>
    </ion-item>
    </ion-list>
 
